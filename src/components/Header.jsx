@@ -1,34 +1,39 @@
 import { Component } from 'react';
 import Loading from './Loading';
-// import { getUser } from '../services/userAPI';
+import { getUser } from '../services/userAPI';
 import './Header.css';
 
 class Header extends Component {
   constructor() {
     super();
     this.state = {
-      isLoading: false,
+      isLoading: true,
+      name: '',
     };
   }
 
-  // async showUser() {
-  //   const { name } = await getUser();
-  //   this.setState({
-  //     isLoading: false,
-  //   });
-  //   return name;
-  // }
+  componentDidMount() {
+    this.saveNameState();
+  }
+
+  async saveNameState() {
+    const { name } = await getUser();
+    this.setState({
+      name,
+      isLoading: false,
+    });
+  }
 
   render() {
-    const { isLoading } = this.state;
+    const { isLoading, name } = this.state;
     return (
       isLoading ? (
         <Loading />
       ) : (
         <header data-testid="header-component">
-          <div>
-            Bem vindo
-          </div>
+          <h2 data-testid="header-user-name">
+            {`Bem vindo, ${name}!`}
+          </h2>
         </header>
       )
     );
