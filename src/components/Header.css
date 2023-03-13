@@ -3,6 +3,25 @@ header {
   background-color: green;
   color: white;
   display: flex;
+  flex-direction: column;
+  gap: 10px;
   height: 100px;
   justify-content: center;
+}
+
+.links-section {
+  display: flex;
+  gap: 30px;
+}
+
+.links-section div {
+  align-items: center;
+  background-color: white;
+  border-radius: 10px;
+  color: green;
+  cursor: pointer;
+  display: flex;
+  height: 30px;
+  justify-content: center;
+  width: 150px;
 }
