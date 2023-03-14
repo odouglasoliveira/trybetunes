@@ -1,6 +1,6 @@
 header {
   align-items: center;
-  background-color: #00BD68;
+  background-color: #00bd68;
   color: white;
   display: flex;
   flex-direction: column;
@@ -18,7 +18,7 @@ header {
   align-items: center;
   background-color: white;
   border-radius: 10px;
-  color: #00BD68;
+  color: #00bd68;
   cursor: pointer;
   display: flex;
   height: 30px;
