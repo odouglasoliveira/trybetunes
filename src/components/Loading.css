@@ -1,5 +1,5 @@
 .loading-page {
-  align-items: start;
+  align-items: flex-start;
   display: flex;
   height: 100vh;
   justify-content: center;
