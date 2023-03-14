@@ -7,6 +7,13 @@
   width: 100%;
 }
 
+.search-form {
+  display: flex;
+  flex-direction: row;
+  height: 100px;
+  width: 800px;
+}
+
 .search-artist-input {
   color: black;
 }
@@ -21,8 +28,7 @@
   cursor: pointer;
   display: inline-block;
   font-family: sans-serif;
-  height: 44px;
-  line-height: 44px;
+  height: 30px;
   outline: 0;
   overflow: hidden;
   padding: 0 20px;
@@ -31,9 +37,9 @@
   text-align: center;
   touch-action: manipulation;
   user-select: none;
-  vertical-align: top;
+  vertical-align: center;
   white-space: nowrap;
-  width: 50%;
+  width: 200px;
   z-index: 9;
 }
 

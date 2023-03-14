@@ -1,0 +1,33 @@
+.albumCard {
+  box-shadow: rgba(0, 0, 0, 0.493) 0 3px 8px;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 20px 0;
+  width: 300px;
+}
+
+.description-section {
+  align-items: center;
+  color: #00bd68;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  width: 50%;
+}
+
+.album-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin: 100px 0;
+  padding: 0 100px;
+  width: 100%;
+}
+
+.album-section-title, .no-album {
+  color: #00bd68;
+  margin-top: 50px;
+  text-align: center;
+}

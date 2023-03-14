@@ -1,5 +1,8 @@
 import { Component } from 'react';
 import Header from '../components/Header';
+import Loading from '../components/Loading';
+import AlbumCard from '../components/AlbumCard';
+import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import './Search.css';
 
 class Search extends Component {
@@ -9,6 +12,11 @@ class Search extends Component {
     this.state = {
       artistName: '',
       isSearchButtonDisabled: true,
+      isLoading: false,
+      hasAlbuns: true,
+      albuns: [],
+      searchedName: '',
+      wasSearched: false,
     };
   }
 
@@ -31,29 +39,98 @@ class Search extends Component {
   }
 
   render() {
-    const { artistName, isSearchButtonDisabled } = this.state;
+    const { artistName,
+      isSearchButtonDisabled,
+      isLoading,
+      hasAlbuns,
+      albuns,
+      searchedName,
+      wasSearched,
+    } = this.state;
+
     return (
       <div data-testid="page-search" className="page-search">
         <Header />
         <section className="form-section">
-          <form>
-            <input
-              type="text"
-              data-testid="search-artist-input"
-              className="search-artist-input"
-              placeholder="Nome do artista"
-              onChange={ this.handleInput }
-              value={ artistName }
-            />
-            <button
-              data-testid="search-artist-button"
-              className="search-artist-button"
-              disabled={ isSearchButtonDisabled }
-            >
-              Pesquisar
-            </button>
-          </form>
+          {
+            isLoading ? (
+              <Loading />
+            ) : (
+              <form className="search-form">
+                <input
+                  type="text"
+                  data-testid="search-artist-input"
+                  className="search-artist-input"
+                  placeholder="Nome do artista"
+                  onChange={ this.handleInput }
+                  value={ artistName }
+                />
+                <button
+                  data-testid="search-artist-button"
+                  className="search-artist-button"
+                  disabled={ isSearchButtonDisabled }
+                  onClick={ async (event) => {
+                    event.preventDefault();
+                    this.setState({
+                      artistName: '',
+                      isLoading: true,
+                    });
+                    const response = await searchAlbumsAPI(artistName);
+                    this.setState({
+                      albuns: response,
+                      isLoading: false,
+                      hasAlbuns: true,
+                      searchedName: artistName,
+                      wasSearched: true,
+                    });
+                    if (response.length === 0) {
+                      this.setState({
+                        hasAlbuns: false,
+                      });
+                    }
+                  } }
+                >
+                  Pesquisar
+                </button>
+              </form>
+            )
+          }
         </section>
+        {
+          hasAlbuns ? (
+            <>
+              {
+                wasSearched ? (
+                  <h2
+                    className="album-section-title"
+                  >
+                    {`Resultado de álbuns de: ${searchedName}`}
+                  </h2>
+                ) : (
+                  <>
+                  </>
+                )
+              }
+              <section className="album-section">
+                {
+                  albuns.map((album, index) => (
+                    <AlbumCard
+                      key={ index }
+                      artistName={ album.artistName }
+                      albumName={ album.collectionName }
+                      albumImage={ album.artworkUrl100 }
+                      collectionId={ album.collectionId }
+                    />
+                  ))
+                }
+              </section>
+            </>
+          ) : (
+            <section>
+              <h2 className="no-album">Nenhum álbum foi encontrado.</h2>
+            </section>
+          )
+        }
       </div>
     );
   }
