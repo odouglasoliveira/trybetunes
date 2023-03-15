@@ -5,6 +5,7 @@ import Loading from '../components/Loading';
 import getMusics from '../services/musicsAPI';
 import MusicCard from '../components/MusicCard';
 import './Album.css';
+import { getFavoriteSongs } from '../services/favoriteSongsAPI';
 
 class Album extends Component {
   constructor() {
@@ -14,6 +15,7 @@ class Album extends Component {
       musics: [],
       artistName: '',
       collectionName: '',
+      favoriteSongs: [],
     };
   }
 
@@ -30,11 +32,12 @@ class Album extends Component {
       musics,
       artistName,
       collectionName,
+      favoriteSongs: await getFavoriteSongs(),
     });
   }
 
   render() {
-    const { isLoading, musics, artistName, collectionName } = this.state;
+    const { isLoading, musics, artistName, collectionName, favoriteSongs } = this.state;
     return (
       <div data-testid="page-album">
         {
@@ -59,7 +62,11 @@ class Album extends Component {
               </section>
               <section className="musics-section">
                 { musics.slice(1).map((music) => (
-                  <MusicCard key={ music.trackId } music={ music } />
+                  <MusicCard
+                    key={ music.trackId }
+                    music={ music }
+                    favoriteSongs={ favoriteSongs }
+                  />
                 )) }
               </section>
             </>

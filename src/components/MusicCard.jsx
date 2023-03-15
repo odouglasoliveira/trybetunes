@@ -13,6 +13,16 @@ class MusicCard extends Component {
     };
   }
 
+  componentDidMount() {
+    const { music, favoriteSongs } = this.props;
+    const { trackId } = music;
+    if (favoriteSongs.some((song) => song.trackId === trackId)) {
+      this.setState({
+        checked: true,
+      });
+    }
+  }
+
   render() {
     const { music } = this.props;
     const { previewUrl, collectionName, trackName, trackId } = music;
@@ -39,7 +49,7 @@ class MusicCard extends Component {
                   name="favorite-input"
                   checked={ checked }
                   data-testid={ `checkbox-music-${trackId}` }
-                  onClick={ async () => {
+                  onChange={ async () => {
                     this.setState({
                       isLoading: true,
                     });
@@ -73,6 +83,11 @@ MusicCard.propTypes = {
     trackName: PropTypes.string.isRequired,
     trackId: PropTypes.number.isRequired,
   }).isRequired,
+  favoriteSongs: PropTypes.arrayOf(
+    PropTypes.shape({
+      trackId: PropTypes.number.isRequired,
+    }).isRequired,
+  ).isRequired,
 };
 
 export default MusicCard;
