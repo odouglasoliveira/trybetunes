@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 import Loading from './Loading';
-import { addSong } from '../services/favoriteSongsAPI';
+import { addSong, removeSong } from '../services/favoriteSongsAPI';
 import './MusicCard.css';
 
 class MusicCard extends Component {
@@ -50,14 +50,25 @@ class MusicCard extends Component {
                   checked={ checked }
                   data-testid={ `checkbox-music-${trackId}` }
                   onChange={ async () => {
-                    this.setState({
-                      isLoading: true,
-                    });
-                    await addSong(music);
-                    this.setState({
-                      isLoading: false,
-                      checked: true,
-                    });
+                    if (checked) {
+                      this.setState({
+                        isLoading: true,
+                        checked: false,
+                      });
+                      await removeSong(music);
+                      this.setState({
+                        isLoading: false,
+                      });
+                    } else {
+                      this.setState({
+                        isLoading: true,
+                      });
+                      await addSong(music);
+                      this.setState({
+                        isLoading: false,
+                        checked: true,
+                      });
+                    }
                   } }
                 />
                 Favorita
