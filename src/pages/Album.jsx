@@ -58,8 +58,8 @@ class Album extends Component {
                 </p>
               </section>
               <section className="musics-section">
-                { musics.slice(1).map((music, index) => (
-                  <MusicCard key={ index } music={ music } />
+                { musics.slice(1).map((music) => (
+                  <MusicCard key={ music.trackId } music={ music } />
                 )) }
               </section>
             </>

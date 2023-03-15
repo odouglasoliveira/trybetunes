@@ -14,3 +14,10 @@
   gap: 10px;
   padding: 20px;
 }
+
+.favorite-input-label {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
