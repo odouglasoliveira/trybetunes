@@ -47,17 +47,17 @@ class MusicCard extends Component {
                 <input
                   type="checkbox"
                   name="favorite-input"
+                  id="favorite-input"
                   checked={ checked }
                   data-testid={ `checkbox-music-${trackId}` }
                   onChange={ async () => {
                     if (checked) {
                       this.setState({
                         isLoading: true,
-                        checked: false,
                       });
                       await removeSong(music);
                       this.setState({
-                        isLoading: false,
+                        checked: false,
                       });
                     } else {
                       this.setState({
