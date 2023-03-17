@@ -1,14 +1,14 @@
 .profile-section {
-  width: 500px;
-  height: 600px;
-  display: flex;
-  gap: 100px;
   align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.16) 0 3px 6px , rgba(0, 0, 0, 0.23) 0 3px 6px;
+  display: flex;
   flex-direction: column;
+  gap: 100px;
+  height: 600px;
   margin: 0 auto;
   margin-top: 100px;
   padding: 50px 0;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  width: 500px;
 }
 
 .edit-section {
@@ -19,17 +19,17 @@
 }
 
 .edit-section img {
-  width: 100px;
   aspect-ratio: 1/1;
   border-radius: 50%;
+  width: 100px;
 }
 
 .edit-section button {
-  width: 100px;
-  height: 30px;
-  border-radius: 5px;
   background: white;
   border: 1px solid #00bd68;
+  border-radius: 5px;
+  height: 30px;
+  width: 100px;
 }
 
 .edit-section button:hover {
