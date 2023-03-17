@@ -1,10 +1,11 @@
 import { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 
 class NotFound extends Component {
   render() {
     return (
       <div data-testid="page-not-found">
-        Not Found
+        <Redirect to="/" />
       </div>
     );
   }
