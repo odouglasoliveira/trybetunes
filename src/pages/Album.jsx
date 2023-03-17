@@ -25,6 +25,14 @@ class Album extends Component {
     this.fetchMusic(id);
   }
 
+  handleFavorites(song) {
+    const { favoriteSongs } = this.state;
+    const newFavoriteSongs = favoriteSongs.filter((s) => s.trackId !== song.trackId);
+    this.setState({
+      favoriteSongs: newFavoriteSongs,
+    });
+  }
+
   async fetchMusic(id) {
     const musics = await getMusics(id);
     const { artistName, collectionName } = await musics[0];
@@ -66,6 +74,9 @@ class Album extends Component {
                     key={ music.trackId }
                     music={ music }
                     favoriteSongs={ favoriteSongs }
+                    handleFavorites={ () => {
+                      this.handleFavorites(music);
+                    } }
                   />
                 )) }
               </section>

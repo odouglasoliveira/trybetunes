@@ -7,9 +7,11 @@ import { getFavoriteSongs } from '../services/favoriteSongsAPI';
 class Favorites extends Component {
   constructor() {
     super();
+    this.fetchFavoriteSongs = this.fetchFavoriteSongs.bind(this);
+    this.handleFavorites = this.handleFavorites.bind(this);
     this.state = {
       favoriteSongs: [],
-      isLoading: true,
+      isLoading: false,
     };
   }
 
@@ -17,15 +19,21 @@ class Favorites extends Component {
     this.fetchFavoriteSongs();
   }
 
+  handleFavorites(song) {
+    const { favoriteSongs } = this.state;
+    const newFavoriteSongs = favoriteSongs.filter((s) => s.trackId !== song.trackId);
+    this.setState({
+      favoriteSongs: newFavoriteSongs,
+    });
+  }
+
   async fetchFavoriteSongs() {
     this.setState({
       favoriteSongs: await getFavoriteSongs(),
-      isLoading: false,
     });
   }
 
   render() {
-    this.fetchFavoriteSongs();
     const { isLoading, favoriteSongs } = this.state;
     return (
       <div data-testid="page-favorites">
@@ -42,6 +50,9 @@ class Favorites extends Component {
                       key={ song.trackId }
                       music={ song }
                       favoriteSongs={ favoriteSongs }
+                      handleFavorites={ () => {
+                        this.handleFavorites(song);
+                      } }
                     />
                   ))
                 }

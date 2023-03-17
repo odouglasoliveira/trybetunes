@@ -24,7 +24,7 @@ class MusicCard extends Component {
   }
 
   render() {
-    const { music } = this.props;
+    const { music, handleFavorites } = this.props;
     const { previewUrl, collectionName, trackName, trackId } = music;
     const { isLoading, checked } = this.state;
     return (
@@ -56,8 +56,10 @@ class MusicCard extends Component {
                         isLoading: true,
                       });
                       await removeSong(music);
+                      handleFavorites(music);
                       this.setState({
                         checked: false,
+                        isLoading: false,
                       });
                     } else {
                       this.setState({
@@ -65,8 +67,8 @@ class MusicCard extends Component {
                       });
                       await addSong(music);
                       this.setState({
-                        isLoading: false,
                         checked: true,
+                        isLoading: false,
                       });
                     }
                   } }
@@ -99,6 +101,7 @@ MusicCard.propTypes = {
       trackId: PropTypes.number.isRequired,
     }).isRequired,
   ).isRequired,
+  handleFavorites: PropTypes.func.isRequired,
 };
 
 export default MusicCard;
