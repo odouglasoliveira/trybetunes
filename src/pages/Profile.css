@@ -12,10 +12,15 @@
 }
 
 .edit-section {
+  align-items: center;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   width: 100%;
+}
+
+.description-section {
+  text-align: center;
 }
 
 .edit-section img {

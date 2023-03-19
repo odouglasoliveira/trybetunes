@@ -12,6 +12,10 @@
   width: 100vw;
 }
 
+.login-title {
+  color: #00d775;
+}
+
 form {
   align-items: center;
   border-radius: 10px;

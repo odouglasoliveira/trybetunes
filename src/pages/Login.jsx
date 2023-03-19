@@ -40,6 +40,9 @@ class Login extends Component {
             <Loading />
           ) : (
             <form>
+              <h2 className="login-title">
+                Login
+              </h2>
               <label htmlFor="name-input">
                 <input
                   type="text"
