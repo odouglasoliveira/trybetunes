@@ -33,7 +33,7 @@ class Header extends Component {
       ) : (
         <header data-testid="header-component">
           <h2 data-testid="header-user-name">
-            { name }
+            {`Bem vindo, ${name}!`}
           </h2>
           <section className="links-section">
             <Link

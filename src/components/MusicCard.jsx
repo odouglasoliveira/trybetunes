@@ -28,12 +28,12 @@ class MusicCard extends Component {
     const { previewUrl, collectionName, trackName, trackId } = music;
     const { isLoading, checked } = this.state;
     return (
-      <div>
+      <section className="music-card">
         {
           isLoading ? (
             <Loading />
           ) : (
-            <section className="music-card">
+            <>
               <p className="album-name">
                 { collectionName }
               </p>
@@ -81,10 +81,10 @@ class MusicCard extends Component {
                 {' '}
                 <code>audio</code>
               </audio>
-            </section>
+            </>
           )
         }
-      </div>
+      </section>
     );
   }
 }

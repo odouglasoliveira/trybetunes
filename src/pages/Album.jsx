@@ -35,17 +35,23 @@ class Album extends Component {
 
   async fetchMusic(id) {
     const musics = await getMusics(id);
-    const { artistName, collectionName } = await musics[0];
+    const { artistName, collectionName, artworkUrl100 } = await musics[0];
     this.setState({
       musics,
       artistName,
       collectionName,
       favoriteSongs: await getFavoriteSongs(),
+      artworkUrl100,
     });
   }
 
   render() {
-    const { isLoading, musics, artistName, collectionName, favoriteSongs } = this.state;
+    const { isLoading,
+      musics,
+      artistName,
+      collectionName,
+      favoriteSongs,
+      artworkUrl100 } = this.state;
     return (
       <div data-testid="page-album">
         {
@@ -55,18 +61,23 @@ class Album extends Component {
             <>
               <Header />
               <section className="artist-section">
-                <p
-                  className="artist-title"
-                  data-testid="artist-name"
-                >
-                  { artistName }
-                </p>
-                <p
-                  className="album-title"
-                  data-testid="album-name"
-                >
-                  { collectionName }
-                </p>
+                <div>
+                  <img src={ artworkUrl100 } alt="" />
+                </div>
+                <div>
+                  <p
+                    className="artist-title"
+                    data-testid="artist-name"
+                  >
+                    { artistName }
+                  </p>
+                  <p
+                    className="album-title"
+                    data-testid="album-name"
+                  >
+                    { collectionName }
+                  </p>
+                </div>
               </section>
               <section className="musics-section">
                 { musics.slice(1).map((music) => (
