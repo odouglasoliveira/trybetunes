@@ -6,13 +6,13 @@ Um site de musicas onde é possivel fazer login, alterar dados do perfil do usu�
 
 ## Aprendizados
 
-Nesse projeto aprendi a criar uma SPA (Single Page Application), uma aplicação multi rotas que renderiza o conteúdo de forma dinâmica, sem precisar atualizar a página.
+Nesse projeto aprendi a criar uma SPA (Single Page Application), uma aplicação multi rotas que renderiza o conteúdo de forma dinâmica, sem precisar atualizar a página. Também aprendi a trabalhar com React Router.
 
 
 
 ## Stacks utilizadas
 
-**Front-end:** ReactJS.
+**Front-end:** ReactJS, React Router.
 
 **Back-end:** Essa aplicação não possui back-end.
 
