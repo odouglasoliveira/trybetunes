@@ -32,7 +32,9 @@ class Header extends Component {
     const { isLoading, name } = this.state;
     return (
       isLoading ? (
-        <Loading />
+        <header>
+          <Loading />
+        </header>
       ) : (
         <header data-testid="header-component">
           <h2 data-testid="header-user-name">

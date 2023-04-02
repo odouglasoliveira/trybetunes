@@ -18,14 +18,14 @@
 
 form {
   align-items: center;
-  border-radius: 10px;
+  border-radius: 20px;
   box-shadow: rgb(38, 57, 77) 0 20px 30px -10px;
   display: flex;
   flex-direction: column;
   gap: 30px;
-  height: 600px;
+  height: 450px;
   justify-content: center;
-  width: 400px;
+  width: 750px;  
 }
 
 form input {

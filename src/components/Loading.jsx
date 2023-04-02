@@ -4,8 +4,15 @@ import './Loading.css';
 class Loading extends Component {
   render() {
     return (
-      <div className="loading-page">
-        <h1>Carregando...</h1>
+      <div className="dot-spinner">
+        <div className="dot-spinner__dot" />
+        <div className="dot-spinner__dot" />
+        <div className="dot-spinner__dot" />
+        <div className="dot-spinner__dot" />
+        <div className="dot-spinner__dot" />
+        <div className="dot-spinner__dot" />
+        <div className="dot-spinner__dot" />
+        <div className="dot-spinner__dot" />
       </div>
     );
   }

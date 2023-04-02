@@ -49,7 +49,9 @@ class Profile extends Component {
           isLoading ? (
             <>
               <Header />
-              <Loading />
+              <section className="profile-section">
+                <Loading />
+              </section>
             </>
           ) : (
             <>
