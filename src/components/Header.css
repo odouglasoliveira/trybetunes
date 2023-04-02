@@ -25,3 +25,9 @@ header {
   justify-content: center;
   width: 150px;
 }
+
+.search-link, .favorites-link, .profile-link {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}

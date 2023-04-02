@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import Loading from './Loading';
 import { getUser } from '../services/userAPI';
 import './Header.css';
+import searchSVG from '../images/lupa.svg';
+import starSVG from '../images/estrela.svg';
+import profileSVG from '../images/defaultProfile.svg';
 
 class Header extends Component {
   constructor() {
@@ -41,21 +44,30 @@ class Header extends Component {
               data-testid="link-to-search"
               style={ { textDecoration: 'none' } }
             >
-              <div>Pesquisar</div>
+              <div className="search-link">
+                <img src={ searchSVG } alt="Icone de Pesquisa" />
+                Pesquisar
+              </div>
             </Link>
             <Link
               to="/favorites"
               data-testid="link-to-favorites"
               style={ { textDecoration: 'none' } }
             >
-              <div>Favoritas</div>
+              <div className="favorites-link">
+                <img src={ starSVG } alt="Icone de Favoritas" />
+                Favoritas
+              </div>
             </Link>
             <Link
               to="/profile"
               data-testid="link-to-profile"
               style={ { textDecoration: 'none' } }
             >
-              <div>Meu Perfil</div>
+              <div className="profile-link">
+                <img src={ profileSVG } alt="Icone do Perfil" />
+                Meu Perfil
+              </div>
             </Link>
           </section>
         </header>
