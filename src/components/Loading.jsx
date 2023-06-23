@@ -1,10 +1,10 @@
 import { Component } from 'react';
-import './Loading.css';
+import { StyledLoading } from '../styles/styles';
 
 class Loading extends Component {
   render() {
     return (
-      <div className="dot-spinner">
+      <StyledLoading>
         <div className="dot-spinner__dot" />
         <div className="dot-spinner__dot" />
         <div className="dot-spinner__dot" />
@@ -13,7 +13,7 @@ class Loading extends Component {
         <div className="dot-spinner__dot" />
         <div className="dot-spinner__dot" />
         <div className="dot-spinner__dot" />
-      </div>
+      </StyledLoading>
     );
   }
 }

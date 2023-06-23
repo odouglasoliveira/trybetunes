@@ -1,6 +1,5 @@
 import { Component } from 'react';
 import { Link } from 'react-router-dom';
-import './AlbumCard.css';
 import PropTypes from 'prop-types';
 
 class AlbumCard extends Component {
@@ -8,7 +7,6 @@ class AlbumCard extends Component {
     const { artistName, albumName, albumImage, collectionId } = this.props;
     return (
       <Link
-        data-testid={ `link-to-album-${collectionId}` }
         to={ `/album/${collectionId}` }
         style={ { textDecoration: 'none' } }
       >

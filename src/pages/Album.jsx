@@ -4,7 +4,6 @@ import Header from '../components/Header';
 import Loading from '../components/Loading';
 import getMusics from '../services/musicsAPI';
 import MusicCard from '../components/MusicCard';
-import './Album.css';
 import { getFavoriteSongs } from '../services/favoriteSongsAPI';
 
 class Album extends Component {
@@ -53,7 +52,7 @@ class Album extends Component {
       favoriteSongs,
       artworkUrl100 } = this.state;
     return (
-      <div data-testid="page-album">
+      <div>
         {
           isLoading ? (
             <Loading />
@@ -67,13 +66,11 @@ class Album extends Component {
                 <div>
                   <p
                     className="artist-title"
-                    data-testid="artist-name"
                   >
                     { artistName }
                   </p>
                   <p
                     className="album-title"
-                    data-testid="album-name"
                   >
                     { collectionName }
                   </p>

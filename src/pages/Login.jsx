@@ -2,7 +2,6 @@ import { Component } from 'react';
 import PropTypes from 'prop-types';
 import Loading from '../components/Loading';
 import { createUser } from '../services/userAPI';
-import './Login.css';
 
 class Login extends Component {
   constructor() {
@@ -34,7 +33,7 @@ class Login extends Component {
   render() {
     const { userName, isButtonDisabled, isLoading } = this.state;
     return (
-      <div className="page-login" data-testid="page-login">
+      <div className="page-login">
         {
           isLoading ? (
             <Loading />
@@ -47,7 +46,6 @@ class Login extends Component {
                 <input
                   type="text"
                   name="name-input"
-                  data-testid="login-name-input"
                   placeholder="Nome"
                   onChange={ this.handleChange }
                   value={ userName }
@@ -55,7 +53,6 @@ class Login extends Component {
               </label>
               <button
                 className="login-button"
-                data-testid="login-submit-button"
                 disabled={ isButtonDisabled }
                 onClick={ async (event) => {
                   const { history } = this.props;

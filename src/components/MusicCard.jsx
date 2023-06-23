@@ -2,7 +2,6 @@ import { Component } from 'react';
 import PropTypes from 'prop-types';
 import Loading from './Loading';
 import { addSong, removeSong } from '../services/favoriteSongsAPI';
-import './MusicCard.css';
 
 class MusicCard extends Component {
   constructor() {
@@ -25,7 +24,7 @@ class MusicCard extends Component {
 
   render() {
     const { music, handleFavorites } = this.props;
-    const { previewUrl, collectionName, trackName, trackId } = music;
+    const { previewUrl, collectionName, trackName } = music;
     const { isLoading, checked } = this.state;
     return (
       <section className="music-card">
@@ -49,7 +48,6 @@ class MusicCard extends Component {
                   name="favorite-input"
                   id="favorite-input"
                   checked={ checked }
-                  data-testid={ `checkbox-music-${trackId}` }
                   onChange={ async () => {
                     if (checked) {
                       this.setState({
@@ -75,7 +73,7 @@ class MusicCard extends Component {
                 />
                 Favorita
               </label>
-              <audio data-testid="audio-component" src={ previewUrl } controls>
+              <audio src={ previewUrl } controls>
                 <track kind="captions" />
                 O seu navegador não suporta o elemento
                 {' '}

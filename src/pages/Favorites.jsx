@@ -3,7 +3,6 @@ import Header from '../components/Header';
 import Loading from '../components/Loading';
 import MusicCard from '../components/MusicCard';
 import { getFavoriteSongs } from '../services/favoriteSongsAPI';
-import './Favorites.css';
 
 class Favorites extends Component {
   constructor() {
@@ -37,7 +36,7 @@ class Favorites extends Component {
   render() {
     const { isLoading, favoriteSongs } = this.state;
     return (
-      <div data-testid="page-favorites">
+      <div>
         {
           isLoading ? (
             <Loading />

@@ -36,14 +36,13 @@ class Header extends Component {
           <Loading />
         </StyledHeader>
       ) : (
-        <StyledHeader data-testid="header-component">
-          <h2 data-testid="header-user-name">
+        <StyledHeader>
+          <h2>
             {`Bem vindo, ${name}!`}
           </h2>
           <section className="links-section">
             <Link
               to="/search"
-              data-testid="link-to-search"
               style={ { textDecoration: 'none' } }
             >
               <div className="search-link">
@@ -53,7 +52,6 @@ class Header extends Component {
             </Link>
             <Link
               to="/favorites"
-              data-testid="link-to-favorites"
               style={ { textDecoration: 'none' } }
             >
               <div className="favorites-link">
@@ -63,7 +61,6 @@ class Header extends Component {
             </Link>
             <Link
               to="/profile"
-              data-testid="link-to-profile"
               style={ { textDecoration: 'none' } }
             >
               <div className="profile-link">

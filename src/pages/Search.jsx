@@ -3,7 +3,6 @@ import Header from '../components/Header';
 import Loading from '../components/Loading';
 import AlbumCard from '../components/AlbumCard';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
-import './Search.css';
 
 class Search extends Component {
   constructor() {
@@ -49,7 +48,7 @@ class Search extends Component {
     } = this.state;
 
     return (
-      <div data-testid="page-search" className="page-search">
+      <div className="page-search">
         <Header />
         <section className="form-section">
           {
@@ -59,14 +58,12 @@ class Search extends Component {
               <form className="search-form">
                 <input
                   type="text"
-                  data-testid="search-artist-input"
                   className="search-artist-input"
                   placeholder="Nome do artista"
                   onChange={ this.handleInput }
                   value={ artistName }
                 />
                 <button
-                  data-testid="search-artist-button"
                   className="search-artist-button"
                   disabled={ isSearchButtonDisabled }
                   onClick={ async (event) => {
