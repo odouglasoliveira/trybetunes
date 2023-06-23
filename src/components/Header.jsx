@@ -2,10 +2,10 @@ import { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Loading from './Loading';
 import { getUser } from '../services/userAPI';
-import './Header.css';
 import searchSVG from '../images/lupa.svg';
 import starSVG from '../images/estrela.svg';
 import profileSVG from '../images/defaultProfile.svg';
+import { StyledHeader } from '../styles/styles';
 
 class Header extends Component {
   constructor() {
@@ -32,11 +32,11 @@ class Header extends Component {
     const { isLoading, name } = this.state;
     return (
       isLoading ? (
-        <header>
+        <StyledHeader>
           <Loading />
-        </header>
+        </StyledHeader>
       ) : (
-        <header data-testid="header-component">
+        <StyledHeader data-testid="header-component">
           <h2 data-testid="header-user-name">
             {`Bem vindo, ${name}!`}
           </h2>
@@ -72,7 +72,7 @@ class Header extends Component {
               </div>
             </Link>
           </section>
-        </header>
+        </StyledHeader>
       )
     );
   }
