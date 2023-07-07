@@ -31,3 +31,24 @@ header {
   flex-direction: row;
   gap: 10px;
 }
+
+@media screen and (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  header {
+    height: max-content;
+    padding: 12px;
+  }
+
+  .links-section {
+    flex-direction: row;
+    gap: 12px;
+  }
+
+  .links-section div {
+    width: 100%;
+    padding: 10px;
+  }
+}

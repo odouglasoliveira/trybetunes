@@ -40,3 +40,11 @@
 .edit-section button:hover {
   cursor: pointer;
 }
+
+@media screen and (max-width: 768px) {
+  .profile-section {
+    width: 80%;
+    height: 80%;
+    margin-top: 60px;
+  }
+}
