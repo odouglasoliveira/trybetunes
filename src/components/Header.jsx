@@ -27,7 +27,7 @@ class Header extends Component {
   render() {
     const { name } = this.state;
     return (
-      <header className="bg-emerald-500">
+      <header className="bg-emerald-500 w-screen">
         <h2 className="text-white text-2xl font-bold text-center py-2">
           {`Bem vindo, ${name}!`}
         </h2>
