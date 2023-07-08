@@ -64,11 +64,12 @@ class ProfileEdit extends Component {
 
   async fetchUser() {
     const userData = await getUser();
+    const defaultUser = userData.email === 'exemplo@email.com';
     this.setState({
-      description: userData.description,
-      email: userData.email,
+      description: defaultUser ? '' : userData.description,
+      email: defaultUser ? '' : userData.email,
       name: userData.name,
-      image: userData.image,
+      image: defaultUser ? '' : userData.image,
       isLoading: false,
     });
   }

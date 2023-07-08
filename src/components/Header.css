@@ -21,9 +21,14 @@ header {
   color: #00bd68;
   cursor: pointer;
   display: flex;
-  height: 30px;
+  height: fit-content;
   justify-content: center;
   width: 150px;
+  transition: 200ms;
+}
+
+.links-section div:hover {
+  transform: scale(1.1);
 }
 
 .search-link, .favorites-link, .profile-link {
@@ -49,6 +54,6 @@ header {
 
   .links-section div {
     width: 100%;
-    padding: 10px;
+    min-height: 100%;
   }
 }

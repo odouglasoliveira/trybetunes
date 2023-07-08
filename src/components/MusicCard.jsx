@@ -2,6 +2,8 @@ import { Component } from 'react';
 import PropTypes from 'prop-types';
 import Loading from './Loading';
 import { addSong, removeSong } from '../services/favoriteSongsAPI';
+import yellowStar from '../images/yellowstar.png';
+import emptyStar from '../images/empty.png';
 import './MusicCard.css';
 
 class MusicCard extends Component {
@@ -25,7 +27,7 @@ class MusicCard extends Component {
 
   render() {
     const { music, handleFavorites } = this.props;
-    const { previewUrl, collectionName, trackName, trackId } = music;
+    const { previewUrl, collectionName, trackName } = music;
     const { isLoading, checked } = this.state;
     return (
       <section className="music-card">
@@ -40,41 +42,29 @@ class MusicCard extends Component {
               <p className="song-name">
                 { trackName }
               </p>
-              <label
-                htmlFor="favorite-input"
-                className="favorite-input-label"
+
+              <button
+                name="favorite-input"
+                className="favorite-input"
+                onClick={ async () => {
+                  if (checked) {
+                    await removeSong(music);
+                    handleFavorites(music);
+                    this.setState({
+                      checked: false,
+                    });
+                  } else {
+                    await addSong(music);
+                    this.setState({
+                      checked: true,
+                    });
+                  }
+                } }
               >
-                <input
-                  type="checkbox"
-                  name="favorite-input"
-                  id="favorite-input"
-                  checked={ checked }
-                  data-testid={ `checkbox-music-${trackId}` }
-                  onChange={ async () => {
-                    if (checked) {
-                      this.setState({
-                        isLoading: true,
-                      });
-                      await removeSong(music);
-                      handleFavorites(music);
-                      this.setState({
-                        checked: false,
-                        isLoading: false,
-                      });
-                    } else {
-                      this.setState({
-                        isLoading: true,
-                      });
-                      await addSong(music);
-                      this.setState({
-                        checked: true,
-                        isLoading: false,
-                      });
-                    }
-                  } }
-                />
-                Favorita
-              </label>
+                {checked
+                  ? <img src={ yellowStar } alt="Botão de desfavoritar" />
+                  : <img src={ emptyStar } alt="Botão de favoritar" /> }
+              </button>
               <audio data-testid="audio-component" src={ previewUrl } controls>
                 <track kind="captions" />
                 O seu navegador não suporta o elemento

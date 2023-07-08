@@ -15,6 +15,17 @@
   padding: 20px;
 }
 
+.favorite-input {
+  background: transparent;
+  width: fit-content;
+  border: none;
+  cursor: pointer;
+}
+
+.favorite-input img {
+  width: 32px;
+}
+
 .favorite-input-label {
   align-items: center;
   display: flex;

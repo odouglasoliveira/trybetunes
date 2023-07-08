@@ -1,5 +1,7 @@
+import defaultProfile from '../images/do-utilizador.png';
+
 const USER_KEY = 'user';
-const TIMEOUT = 1500;
+const TIMEOUT = 0;
 const SUCCESS_STATUS = 'OK';
 
 const readUser = () => JSON.parse(localStorage.getItem(USER_KEY));
@@ -29,9 +31,9 @@ export const getUser = () => new Promise((resolve) => {
 export const createUser = (user) => new Promise((resolve) => {
   const emptyUser = {
     name: '',
-    email: '',
-    image: '',
-    description: '',
+    email: 'exemplo@email.com',
+    image: defaultProfile,
+    description: 'Insira sua descrição',
   };
   saveUser({ ...emptyUser, ...user });
   simulateRequest(SUCCESS_STATUS)(resolve);

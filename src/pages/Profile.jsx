@@ -63,7 +63,12 @@ class Profile extends Component {
                     alt={ name }
                     data-testid="profile-image"
                   />
-                  <button onClick={ this.redirectProfile }>Editar perfil</button>
+                  <button
+                    onClick={ this.redirectProfile }
+                  >
+                    Editar perfil
+
+                  </button>
                 </section>
                 <section className="description-section">
                   <div>

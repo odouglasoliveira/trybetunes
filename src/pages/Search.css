@@ -10,7 +10,8 @@
 .search-form {
   display: flex;
   flex-direction: row;
-  height: 100px;
+  min-height: 100px;
+  height: fit-content;
   width: 800px;
 }
 
@@ -52,11 +53,16 @@
 }
 
 @media screen and (max-width: 768px) {
+  .search-form {
+    flex-direction: column;
+  }
+
   .search-artist-button {
-    width: 40%;
+    width: 60%;
+    margin-bottom: 24px;
   }
 
   .search-artist-input {
-    width: 40%;
+    width: 80%;
   }
 }
