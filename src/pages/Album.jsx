@@ -59,26 +59,29 @@ class Album extends Component {
           ) : (
             <>
               <Header />
-              <section className="artist-section">
+              <section
+                className="shadow-2xl
+                flex flex-row
+                h-48 border
+                justify-around items-center"
+              >
                 <div>
-                  <img src={ artworkUrl100 } alt="" />
+                  <img className="w-32" src={ artworkUrl100 } alt="" />
                 </div>
-                <div>
+                <div className="text-center font-medium text-2xl">
                   <p
-                    className="artist-title"
                     data-testid="artist-name"
                   >
                     { artistName }
                   </p>
                   <p
-                    className="album-title"
                     data-testid="album-name"
                   >
                     { collectionName }
                   </p>
                 </div>
               </section>
-              <section className="musics-section">
+              <section className="flex flex-wrap flex-row gap-12 p-12 justify-center">
                 { musics.slice(1).map((music) => (
                   <MusicCard
                     key={ music.trackId }
