@@ -25,6 +25,7 @@ header {
   justify-content: center;
   width: 150px;
   transition: 200ms;
+  padding: 6px;
 }
 
 .links-section div:hover {

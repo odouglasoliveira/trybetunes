@@ -36,7 +36,7 @@ class ProfileEdit extends Component {
     this.setState({
       isLoading: true,
     });
-    await updateUser({
+    updateUser({
       name,
       description,
       email,
@@ -63,7 +63,7 @@ class ProfileEdit extends Component {
   }
 
   async fetchUser() {
-    const userData = await getUser();
+    const userData = getUser();
     const defaultUser = userData.email === 'exemplo@email.com';
     this.setState({
       description: defaultUser ? '' : userData.description,
@@ -82,7 +82,9 @@ class ProfileEdit extends Component {
           isLoading ? (
             <>
               <Header />
-              <Loading />
+              <section className="edit-form">
+                <Loading />
+              </section>
             </>
           ) : (
             <>
