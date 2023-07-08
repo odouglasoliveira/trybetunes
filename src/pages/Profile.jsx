@@ -53,13 +53,14 @@ class Profile extends Component {
               <section
                 className="flex flex-col w-full justify-center items-center h-full"
               >
-                <section className="flex flex-row justify-around w-3/6">
+                <section className="flex flex-row items-center justify-around w-3/6">
                   <img
+                    className="w-24 rounded-full"
                     src={ image }
                     alt={ name }
                   />
                   <button
-                    className="border border-emerald-500
+                    className="w-32 h-12 border border-emerald-500
                     px-6 rounded-md hover:bg-emerald-500
                     transition duration-200 hover:text-white"
                     onClick={ this.redirectProfile }

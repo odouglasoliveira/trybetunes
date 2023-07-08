@@ -76,60 +76,78 @@ class ProfileEdit extends Component {
   render() {
     const { isDisabled, isLoading, description, email, name, image } = this.state;
     return (
-      <div>
+      <section className="flex flex-col justify-center items-center">
         {
           isLoading ? (
             <>
               <Header />
-              <section className="edit-form">
-                <Loading />
-              </section>
+              <Loading />
             </>
           ) : (
             <>
               <Header />
-              <section className="edit-form">
-                <form>
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="Nome"
-                    value={ name }
-                    onChange={ this.handleInput }
-                  />
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                    value={ email }
-                    onChange={ this.handleInput }
-                  />
-                  <input
-                    type="text"
-                    name="description"
-                    placeholder="Descrição"
-                    value={ description }
-                    onChange={ this.handleInput }
-                  />
-                  <input
-                    type="text"
-                    name="image"
-                    placeholder="Insira um link de imagem"
-                    value={ image }
-                    onChange={ this.handleInput }
-                  />
-                  <button
-                    disabled={ isDisabled }
-                    onClick={ this.handleClick }
-                  >
-                    Salvar
-                  </button>
-                </form>
-              </section>
+              <form
+                className="flex flex-col gap-6
+                border mt-48 w-96 h-96
+                items-center justify-center"
+              >
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Nome"
+                  className="border border-gray-500
+                  rounded-md text-center
+                  outline-none p-2"
+                  value={ name }
+                  onChange={ this.handleInput }
+                />
+                <input
+                  type="email"
+                  name="email"
+                  className="border border-gray-500
+                  rounded-md text-center
+                  outline-none p-2"
+                  placeholder="Email"
+                  value={ email }
+                  onChange={ this.handleInput }
+                />
+                <input
+                  type="text"
+                  name="description"
+                  className="border border-gray-500
+                  rounded-md text-center
+                  outline-none p-2"
+                  placeholder="Descrição"
+                  value={ description }
+                  onChange={ this.handleInput }
+                />
+                <input
+                  type="text"
+                  name="image"
+                  className="border border-gray-500
+                  rounded-md text-center outline-none p-2"
+                  placeholder="Insira um link de imagem"
+                  value={ image }
+                  onChange={ this.handleInput }
+                />
+                <button
+                  disabled={ isDisabled }
+                  onClick={ this.handleClick }
+                  className="bg-emerald-500 text-white
+                  w-5/6 h-12
+                  rounded-md text-xl
+                  disabled:opacity-50
+                  enabled:hover:bg-emerald-600
+                  transition
+                  duration-200"
+                >
+                  Salvar
+                </button>
+              </form>
             </>
           )
         }
-      </div>
+      </section>
     );
   }
 }
