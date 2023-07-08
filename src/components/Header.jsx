@@ -39,7 +39,6 @@ class Header extends Component {
         >
           <Link
             to="/search"
-            data-testid="link-to-search"
             style={ { textDecoration: 'none' } }
           >
             <div
@@ -54,7 +53,6 @@ class Header extends Component {
           </Link>
           <Link
             to="/favorites"
-            data-testid="link-to-favorites"
             style={ { textDecoration: 'none' } }
           >
             <div
@@ -70,7 +68,6 @@ class Header extends Component {
           </Link>
           <Link
             to="/profile"
-            data-testid="link-to-profile"
             style={ { textDecoration: 'none' } }
           >
             <div
