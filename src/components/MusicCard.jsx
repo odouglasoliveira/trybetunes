@@ -4,7 +4,6 @@ import Loading from './Loading';
 import { addSong, removeSong } from '../services/favoriteSongsAPI';
 import yellowStar from '../images/yellowstar.png';
 import emptyStar from '../images/empty.png';
-import './MusicCard.css';
 
 class MusicCard extends Component {
   constructor() {
@@ -30,7 +29,7 @@ class MusicCard extends Component {
     const { previewUrl, collectionName, trackName } = music;
     const { isLoading, checked } = this.state;
     return (
-      <section className="music-card">
+      <section className="border-2 p-4 rounded-md shadow-xl">
         {
           isLoading ? (
             <Loading />
@@ -42,19 +41,18 @@ class MusicCard extends Component {
               <p className="song-name">
                 { trackName }
               </p>
-
               <button
                 name="favorite-input"
-                className="favorite-input"
+                className="w-8"
                 onClick={ async () => {
                   if (checked) {
-                    await removeSong(music);
+                    removeSong(music);
                     handleFavorites(music);
                     this.setState({
                       checked: false,
                     });
                   } else {
-                    await addSong(music);
+                    addSong(music);
                     this.setState({
                       checked: true,
                     });
@@ -65,7 +63,7 @@ class MusicCard extends Component {
                   ? <img src={ yellowStar } alt="Botão de desfavoritar" />
                   : <img src={ emptyStar } alt="Botão de favoritar" /> }
               </button>
-              <audio data-testid="audio-component" src={ previewUrl } controls>
+              <audio src={ previewUrl } controls>
                 <track kind="captions" />
                 O seu navegador não suporta o elemento
                 {' '}

@@ -4,7 +4,6 @@ import Header from '../components/Header';
 import Loading from '../components/Loading';
 import getMusics from '../services/musicsAPI';
 import MusicCard from '../components/MusicCard';
-import './Album.css';
 import { getFavoriteSongs } from '../services/favoriteSongsAPI';
 
 class Album extends Component {
@@ -40,7 +39,7 @@ class Album extends Component {
       musics,
       artistName,
       collectionName,
-      favoriteSongs: await getFavoriteSongs(),
+      favoriteSongs: getFavoriteSongs(),
       artworkUrl100,
     });
   }
@@ -53,33 +52,32 @@ class Album extends Component {
       favoriteSongs,
       artworkUrl100 } = this.state;
     return (
-      <div data-testid="page-album">
+      <div>
         {
           isLoading ? (
             <Loading />
           ) : (
             <>
               <Header />
-              <section className="artist-section">
+              <section
+                className="shadow-2xl
+                flex flex-row
+                h-48 border
+                justify-around items-center"
+              >
                 <div>
-                  <img src={ artworkUrl100 } alt="" />
+                  <img className="w-32" src={ artworkUrl100 } alt="" />
                 </div>
-                <div>
-                  <p
-                    className="artist-title"
-                    data-testid="artist-name"
-                  >
+                <div className="text-center font-medium text-2xl">
+                  <p>
                     { artistName }
                   </p>
-                  <p
-                    className="album-title"
-                    data-testid="album-name"
-                  >
+                  <p>
                     { collectionName }
                   </p>
                 </div>
               </section>
-              <section className="musics-section">
+              <section className="flex flex-wrap flex-row gap-12 p-12 justify-center">
                 { musics.slice(1).map((music) => (
                   <MusicCard
                     key={ music.trackId }

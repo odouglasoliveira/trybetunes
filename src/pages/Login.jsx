@@ -2,7 +2,6 @@ import { Component } from 'react';
 import PropTypes from 'prop-types';
 import Loading from '../components/Loading';
 import { createUser } from '../services/userAPI';
-import './Login.css';
 
 class Login extends Component {
   constructor() {
@@ -34,44 +33,65 @@ class Login extends Component {
   render() {
     const { userName, isButtonDisabled, isLoading } = this.state;
     return (
-      <div className="page-login" data-testid="page-login">
+      <div
+        className="flex bg-emerald-500 justify-center items-center h-screen"
+        data-testid="page-login"
+      >
         {
           isLoading ? (
             <Loading />
           ) : (
-            <form>
-              <h2 className="login-title">
+            <form
+              className="
+              rounded-lg
+              border-emerald-500
+              shadow-xl
+              bg-white
+              flex-col flex justify-center items-center
+              w-3/6 h-4/6 gap-24"
+            >
+              <h2 className="font-bold text-center text-2xl text-emerald-500 ">
                 Login
               </h2>
-              <label htmlFor="name-input">
+              <div className="flex justify-center items-center gap-2 flex-col w-11/12">
                 <input
                   type="text"
+                  className="border shadow-xl
+                  border-gray-400
+                  w-3/6 rounded-md
+                  text-center p-1
+                  outline-none text-md"
                   name="name-input"
-                  data-testid="login-name-input"
-                  placeholder="Nome"
+                  placeholder="Digite seu nome"
                   onChange={ this.handleChange }
                   value={ userName }
                 />
-              </label>
-              <button
-                className="login-button"
-                data-testid="login-submit-button"
-                disabled={ isButtonDisabled }
-                onClick={ async (event) => {
-                  const { history } = this.props;
-                  event.preventDefault();
-                  this.setState({
-                    isLoading: true,
-                  });
-                  await createUser({ name: userName });
-                  this.setState({
-                    isLoading: false,
-                  });
-                  history.push('/search');
-                } }
-              >
-                Entrar
-              </button>
+                <button
+                  className="border-2 font-semibold
+                text-white rounded-lg w-3/6 h-10
+                bg-emerald-500 bg-opacity-50
+                shadow-xl
+                disabled:cursor-not-allowed
+                enabled:bg-opacity-100
+                enabled:hover:scale-105
+                transition duration-200"
+                  disabled={ isButtonDisabled }
+                  onClick={ (event) => {
+                    const { history } = this.props;
+                    event.preventDefault();
+                    this.setState({
+                      isLoading: true,
+                    });
+                    createUser({ name: userName });
+                    this.setState({
+                      isLoading: false,
+                    });
+                    history.push('/search');
+                  } }
+                >
+                  Entrar
+                </button>
+              </div>
             </form>
           )
         }

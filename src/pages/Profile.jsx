@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
 import { getUser } from '../services/userAPI';
-import './Profile.css';
 
 class Profile extends Component {
   constructor() {
@@ -22,8 +21,8 @@ class Profile extends Component {
     this.fetchUser();
   }
 
-  async fetchUser() {
-    const userData = await getUser();
+  fetchUser() {
+    const userData = getUser();
     this.setState({
       description: userData.description,
       image: userData.image,
@@ -41,46 +40,50 @@ class Profile extends Component {
   render() {
     const { isLoading, description, image, email, name } = this.state;
     return (
-      <div
-        data-testid="page-profile"
-        className="page-profile"
-      >
+      <div className="flex h-full flex-col justify-center items-center">
         {
           isLoading ? (
             <>
               <Header />
-              <section className="profile-section">
-                <Loading />
-              </section>
+              <Loading />
             </>
           ) : (
             <>
               <Header />
-              <section className="profile-section">
-                <section className="edit-section">
+              <section
+                className="flex flex-col w-full justify-center items-center h-full"
+              >
+                <section className="flex flex-row items-center justify-around w-3/6">
                   <img
+                    className="w-24 rounded-full"
                     src={ image }
                     alt={ name }
-                    data-testid="profile-image"
                   />
                   <button
+                    className="w-32 h-12 border border-emerald-500
+                    px-6 rounded-md hover:bg-emerald-500
+                    transition duration-200 hover:text-white"
                     onClick={ this.redirectProfile }
                   >
                     Editar perfil
-
                   </button>
                 </section>
-                <section className="description-section">
+                <section
+                  className="h-5/6 w-3/6
+                  flex flex-col gap-6
+                  text-center text-emerald-500
+                  p-6 justify-center items-center"
+                >
                   <div>
-                    <h3>Nome</h3>
+                    <h3>Nome:</h3>
                     <p>{ name }</p>
                   </div>
                   <div>
-                    <h3>E-mail</h3>
+                    <h3>E-mail:</h3>
                     <p>{ email }</p>
                   </div>
                   <div>
-                    <h3>Descrição</h3>
+                    <h3>Descrição:</h3>
                     <p>{ description }</p>
                   </div>
                 </section>

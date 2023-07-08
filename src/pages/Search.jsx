@@ -3,7 +3,6 @@ import Header from '../components/Header';
 import Loading from '../components/Loading';
 import AlbumCard from '../components/AlbumCard';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
-import './Search.css';
 
 class Search extends Component {
   constructor() {
@@ -49,25 +48,32 @@ class Search extends Component {
     } = this.state;
 
     return (
-      <div data-testid="page-search" className="page-search">
+      <div className="h-full">
         <Header />
-        <section className="form-section">
+        <section className="border bg-white flex flex-col py-5 shadow-xl items-center">
           {
             isLoading ? (
               <Loading />
             ) : (
-              <form className="search-form">
+              <form className="flex gap-2 flex-col">
                 <input
                   type="text"
-                  data-testid="search-artist-input"
-                  className="search-artist-input"
+                  className="border
+                  border-gray-400
+                  text-center outline-none
+                  p-1 rounded-lg"
                   placeholder="Nome do artista"
                   onChange={ this.handleInput }
                   value={ artistName }
                 />
                 <button
-                  data-testid="search-artist-button"
-                  className="search-artist-button"
+                  className="bg-emerald-500
+                  text-white rounded-md
+                  h-8 cursor-pointer
+                  transform enabled:hover:bg-emerald-600
+                  transition duration-200
+                  disabled:opacity-50
+                  disabled:cursor-default"
                   disabled={ isSearchButtonDisabled }
                   onClick={ async (event) => {
                     event.preventDefault();
@@ -82,6 +88,7 @@ class Search extends Component {
                       hasAlbuns: true,
                       searchedName: artistName,
                       wasSearched: true,
+                      isSearchButtonDisabled: true,
                     });
                     if (response.length === 0) {
                       this.setState({
@@ -102,7 +109,7 @@ class Search extends Component {
               {
                 wasSearched ? (
                   <h2
-                    className="album-section-title"
+                    className="text-emerald-500 py-4 text-center font-bold text-lg"
                   >
                     {`Resultado de álbuns de: ${searchedName}`}
                   </h2>
@@ -111,7 +118,9 @@ class Search extends Component {
                   </>
                 )
               }
-              <section className="album-section">
+              <section
+                className="flex flex-row flex-wrap justify-center items-center gap-6 p-6"
+              >
                 {
                   albuns.map((album, index) => (
                     <AlbumCard
@@ -126,9 +135,11 @@ class Search extends Component {
               </section>
             </>
           ) : (
-            <section>
-              <h2 className="no-album">Nenhum álbum foi encontrado.</h2>
-            </section>
+            <h2
+              className="text-emerald-500 py-4 text-center font-bold text-lg"
+            >
+              Nenhum álbum foi encontrado.
+            </h2>
           )
         }
       </div>
