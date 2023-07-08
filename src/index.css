@@ -22,6 +22,10 @@ body {
   .w-3\/6 {
     width: 80%;
   }
+
+  .w-36 {
+    width: fit-content;
+  }
 }
 
 code {

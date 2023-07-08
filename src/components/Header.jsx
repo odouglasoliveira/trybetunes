@@ -1,7 +1,6 @@
 import { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { getUser } from '../services/userAPI';
-import './Header.css';
 import searchSVG from '../images/lupa.svg';
 import starSVG from '../images/estrela.svg';
 import profileSVG from '../images/defaultProfile.svg';
@@ -28,17 +27,27 @@ class Header extends Component {
   render() {
     const { name } = this.state;
     return (
-      <header data-testid="header-component">
-        <h2 data-testid="header-user-name">
+      <header className="bg-emerald-500">
+        <h2 className="text-white text-2xl font-bold text-center py-2">
           {`Bem vindo, ${name}!`}
         </h2>
-        <section className="links-section">
+        <section
+          className="flex-row py-2
+          flex-wrap w-100
+          flex justify-center
+          gap-6 text-emerald-500"
+        >
           <Link
             to="/search"
             data-testid="link-to-search"
             style={ { textDecoration: 'none' } }
           >
-            <div className="search-link">
+            <div
+              className="hover:scale-105
+              transition duration-200
+              flex justify-center p-2 gap-1
+              rounded-lg bg-white w-36 h-10"
+            >
               <img src={ searchSVG } alt="Icone de Pesquisa" />
               Pesquisar
             </div>
@@ -48,7 +57,13 @@ class Header extends Component {
             data-testid="link-to-favorites"
             style={ { textDecoration: 'none' } }
           >
-            <div className="favorites-link">
+            <div
+              className="hover:scale-105
+              transition duration-200
+              flex justify-center
+              p-2 gap-1 rounded-lg
+              bg-white w-36 h-10"
+            >
               <img src={ starSVG } alt="Icone de Favoritas" />
               Favoritas
             </div>
@@ -58,7 +73,13 @@ class Header extends Component {
             data-testid="link-to-profile"
             style={ { textDecoration: 'none' } }
           >
-            <div className="profile-link">
+            <div
+              className="hover:scale-105
+              transition duration-200
+              flex justify-center
+              p-2 gap-1 rounded-lg
+              bg-white w-36 h-10"
+            >
               <img src={ profileSVG } alt="Icone do Perfil" />
               Meu Perfil
             </div>
