@@ -29,7 +29,7 @@ class MusicCard extends Component {
     const { previewUrl, collectionName, trackName } = music;
     const { isLoading, checked } = this.state;
     return (
-      <section className="music-card">
+      <section className="border-2 p-4 rounded-md shadow-xl">
         {
           isLoading ? (
             <Loading />
@@ -41,10 +41,9 @@ class MusicCard extends Component {
               <p className="song-name">
                 { trackName }
               </p>
-
               <button
                 name="favorite-input"
-                className="favorite-input"
+                className="w-8"
                 onClick={ async () => {
                   if (checked) {
                     await removeSong(music);
