@@ -50,7 +50,7 @@ class Search extends Component {
     return (
       <div className="h-full">
         <Header />
-        <section className="border flex flex-col py-5 shadow-xl items-center">
+        <section className="border bg-white flex flex-col py-5 shadow-xl items-center">
           {
             isLoading ? (
               <Loading />

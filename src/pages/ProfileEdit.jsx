@@ -4,7 +4,6 @@ import Header from '../components/Header';
 import Loading from '../components/Loading';
 import { updateUser, getUser } from '../services/userAPI';
 import verifyInputs from '../services/verifyInputs';
-import './ProfileEdit.css';
 
 class ProfileEdit extends Component {
   constructor() {

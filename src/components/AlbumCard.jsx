@@ -1,6 +1,5 @@
 import { Component } from 'react';
 import { Link } from 'react-router-dom';
-import './AlbumCard.css';
 import PropTypes from 'prop-types';
 
 class AlbumCard extends Component {
@@ -10,13 +9,22 @@ class AlbumCard extends Component {
       <Link
         data-testid={ `link-to-album-${collectionId}` }
         to={ `/album/${collectionId}` }
-        style={ { textDecoration: 'none' } }
+        style={ { textDecoration: 'none', width: '300px' } }
       >
-        <section className="albumCard">
-          <img src={ albumImage } alt={ albumName } />
-          <section className="description-section">
-            <p>{ albumName }</p>
-            <p>{ artistName }</p>
+        <section
+          className="flex flex-row rounded-md
+          border w-full justify-around
+          gap-6 p-6 shadow-2xl"
+        >
+          <img className="object-none" src={ albumImage } alt={ albumName } />
+          <section
+            className="flex flex-col
+            items-center justify-center
+            text-emerald-600
+            font-bold"
+          >
+            <p className="text-center">{ albumName }</p>
+            <p className="text-center">{ artistName }</p>
           </section>
         </section>
       </Link>

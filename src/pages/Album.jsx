@@ -4,7 +4,6 @@ import Header from '../components/Header';
 import Loading from '../components/Loading';
 import getMusics from '../services/musicsAPI';
 import MusicCard from '../components/MusicCard';
-import './Album.css';
 import { getFavoriteSongs } from '../services/favoriteSongsAPI';
 
 class Album extends Component {

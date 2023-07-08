@@ -4,7 +4,6 @@ import Loading from './Loading';
 import { addSong, removeSong } from '../services/favoriteSongsAPI';
 import yellowStar from '../images/yellowstar.png';
 import emptyStar from '../images/empty.png';
-import './MusicCard.css';
 
 class MusicCard extends Component {
   constructor() {
