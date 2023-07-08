@@ -61,7 +61,7 @@ class ProfileEdit extends Component {
     });
   }
 
-  async fetchUser() {
+  fetchUser() {
     const userData = getUser();
     const defaultUser = userData.email === 'exemplo@email.com';
     this.setState({
@@ -76,7 +76,7 @@ class ProfileEdit extends Component {
   render() {
     const { isDisabled, isLoading, description, email, name, image } = this.state;
     return (
-      <div data-testid="page-profile-edit">
+      <div>
         {
           isLoading ? (
             <>
@@ -92,7 +92,6 @@ class ProfileEdit extends Component {
                 <form>
                   <input
                     type="text"
-                    data-testid="edit-input-name"
                     name="name"
                     placeholder="Nome"
                     value={ name }
@@ -100,7 +99,6 @@ class ProfileEdit extends Component {
                   />
                   <input
                     type="email"
-                    data-testid="edit-input-email"
                     name="email"
                     placeholder="Email"
                     value={ email }
@@ -108,7 +106,6 @@ class ProfileEdit extends Component {
                   />
                   <input
                     type="text"
-                    data-testid="edit-input-description"
                     name="description"
                     placeholder="Descrição"
                     value={ description }
@@ -116,14 +113,12 @@ class ProfileEdit extends Component {
                   />
                   <input
                     type="text"
-                    data-testid="edit-input-image"
                     name="image"
                     placeholder="Insira um link de imagem"
                     value={ image }
                     onChange={ this.handleInput }
                   />
                   <button
-                    data-testid="edit-button-save"
                     disabled={ isDisabled }
                     onClick={ this.handleClick }
                   >

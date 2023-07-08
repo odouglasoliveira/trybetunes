@@ -7,7 +7,6 @@ class AlbumCard extends Component {
     const { artistName, albumName, albumImage, collectionId } = this.props;
     return (
       <Link
-        data-testid={ `link-to-album-${collectionId}` }
         to={ `/album/${collectionId}` }
         style={ { textDecoration: 'none', width: '300px' } }
       >

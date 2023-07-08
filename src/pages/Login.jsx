@@ -76,7 +76,7 @@ class Login extends Component {
                 enabled:hover:scale-105
                 transition duration-200"
                   disabled={ isButtonDisabled }
-                  onClick={ async (event) => {
+                  onClick={ (event) => {
                     const { history } = this.props;
                     event.preventDefault();
                     this.setState({

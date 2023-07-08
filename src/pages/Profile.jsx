@@ -21,8 +21,8 @@ class Profile extends Component {
     this.fetchUser();
   }
 
-  async fetchUser() {
-    const userData = await getUser();
+  fetchUser() {
+    const userData = getUser();
     this.setState({
       description: userData.description,
       image: userData.image,
@@ -41,7 +41,6 @@ class Profile extends Component {
     const { isLoading, description, image, email, name } = this.state;
     return (
       <div
-        data-testid="page-profile"
         className="page-profile"
       >
         {
@@ -60,13 +59,11 @@ class Profile extends Component {
                   <img
                     src={ image }
                     alt={ name }
-                    data-testid="profile-image"
                   />
                   <button
                     onClick={ this.redirectProfile }
                   >
                     Editar perfil
-
                   </button>
                 </section>
                 <section className="description-section">

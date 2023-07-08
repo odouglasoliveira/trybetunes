@@ -46,13 +46,13 @@ class MusicCard extends Component {
                 className="w-8"
                 onClick={ async () => {
                   if (checked) {
-                    await removeSong(music);
+                    removeSong(music);
                     handleFavorites(music);
                     this.setState({
                       checked: false,
                     });
                   } else {
-                    await addSong(music);
+                    addSong(music);
                     this.setState({
                       checked: true,
                     });
@@ -63,7 +63,7 @@ class MusicCard extends Component {
                   ? <img src={ yellowStar } alt="Botão de desfavoritar" />
                   : <img src={ emptyStar } alt="Botão de favoritar" /> }
               </button>
-              <audio data-testid="audio-component" src={ previewUrl } controls>
+              <audio src={ previewUrl } controls>
                 <track kind="captions" />
                 O seu navegador não suporta o elemento
                 {' '}

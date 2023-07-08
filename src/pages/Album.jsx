@@ -39,7 +39,7 @@ class Album extends Component {
       musics,
       artistName,
       collectionName,
-      favoriteSongs: await getFavoriteSongs(),
+      favoriteSongs: getFavoriteSongs(),
       artworkUrl100,
     });
   }
@@ -52,7 +52,7 @@ class Album extends Component {
       favoriteSongs,
       artworkUrl100 } = this.state;
     return (
-      <div data-testid="page-album">
+      <div>
         {
           isLoading ? (
             <Loading />
@@ -69,14 +69,10 @@ class Album extends Component {
                   <img className="w-32" src={ artworkUrl100 } alt="" />
                 </div>
                 <div className="text-center font-medium text-2xl">
-                  <p
-                    data-testid="artist-name"
-                  >
+                  <p>
                     { artistName }
                   </p>
-                  <p
-                    data-testid="album-name"
-                  >
+                  <p>
                     { collectionName }
                   </p>
                 </div>
