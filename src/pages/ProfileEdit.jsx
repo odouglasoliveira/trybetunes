@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import Loading from '../components/Loading';
 import { updateUser, getUser } from '../services/userAPI';
 import verifyInputs from '../services/verifyInputs';
+import defaultProfilePhoto from '../images/do-utilizador.png';
 
 class ProfileEdit extends Component {
   constructor() {
@@ -68,13 +69,13 @@ class ProfileEdit extends Component {
       description: defaultUser ? '' : userData.description,
       email: defaultUser ? '' : userData.email,
       name: userData.name,
-      image: defaultUser ? '' : userData.image,
+      image: defaultUser ? defaultProfilePhoto : userData.image,
       isLoading: false,
     });
   }
 
   render() {
-    const { isDisabled, isLoading, description, email, name, image } = this.state;
+    const { isDisabled, isLoading, description, email, name } = this.state;
     return (
       <section className="flex flex-col justify-center items-center">
         {
@@ -127,7 +128,7 @@ class ProfileEdit extends Component {
                   className="border border-gray-500
                   rounded-md text-center outline-none p-2"
                   placeholder="Insira um link de imagem"
-                  value={ image }
+                  value=""
                   onChange={ this.handleInput }
                 />
                 <button
