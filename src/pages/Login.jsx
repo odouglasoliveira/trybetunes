@@ -69,7 +69,7 @@ class Login extends Component {
                   text-center p-1
                   outline-none text-md focus:border-emerald-500 transition duration-500"
                     name="name-input"
-                    placeholder="Digite seu nome"
+                    placeholder="Digite seu nome (mínimo 3 caracteres)"
                     onChange={ this.handleChange }
                     value={ userName }
                   />
