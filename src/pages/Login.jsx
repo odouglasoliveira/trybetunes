@@ -2,6 +2,7 @@ import { Component } from 'react';
 import PropTypes from 'prop-types';
 import Loading from '../components/Loading';
 import { createUser } from '../services/userAPI';
+import loginSvg from '../images/Music-bro.svg';
 
 class Login extends Component {
   constructor() {
@@ -48,19 +49,24 @@ class Login extends Component {
               shadow-xl
               bg-white
               flex-col flex justify-center items-center
-              w-3/6 h-4/6 gap-24"
+              w-3/6 h-4/6"
             >
               <h2 className="font-bold text-center text-2xl text-emerald-500 ">
-                Login
+                Crie seu cadastro!
               </h2>
-              <div className="flex justify-center items-center gap-2 flex-col w-11/12">
+              <span className="text-emerald-500 text-center p-2">
+                e encontre as suas novas músicas favoritas.
+              </span>
+              <div
+                className="flex justify-center items-center gap-2 flex-col w-11/12 mt-6"
+              >
                 <input
                   type="text"
                   className="border shadow-xl
                   border-gray-400
                   w-3/6 rounded-md
                   text-center p-1
-                  outline-none text-md"
+                  outline-none text-md focus:border-emerald-500 transition duration-500"
                   name="name-input"
                   placeholder="Digite seu nome"
                   onChange={ this.handleChange }
@@ -91,6 +97,11 @@ class Login extends Component {
                 >
                   Entrar
                 </button>
+                <img
+                  className="w-6/12"
+                  src={ loginSvg }
+                  alt="Ilustração de uma mulher ouvindo músicas."
+                />
               </div>
             </form>
           )
