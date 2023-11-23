@@ -26,49 +26,60 @@ class MusicCard extends Component {
 
   render() {
     const { music, handleFavorites } = this.props;
-    const { previewUrl, collectionName, trackName } = music;
+    const { previewUrl, trackName, artworkUrl100 } = music;
     const { isLoading, checked } = this.state;
     return (
-      <section className="border-2 p-4 rounded-md shadow-xl">
+      <section className="border-2 p-4 rounded-2xl shadow-2xl w-72">
         {
           isLoading ? (
             <Loading />
           ) : (
             <>
-              <p className="album-name">
-                { collectionName }
-              </p>
-              <p className="song-name">
+              <div className="image-container">
+                <img
+                  className="w-12 z-0 shadow-inner"
+                  src={ artworkUrl100 }
+                  alt=""
+                />
+                <div className="image-overlay w-12" />
+              </div>
+              <p
+                className="relative bottom-12 text-center z-1
+                text-white font-bold shadow-2xl max-w-xs"
+              >
                 { trackName }
               </p>
-              <button
-                name="favorite-input"
-                className="w-8"
-                onClick={ async () => {
-                  if (checked) {
-                    removeSong(music);
-                    handleFavorites(music);
-                    this.setState({
-                      checked: false,
-                    });
-                  } else {
-                    addSong(music);
-                    this.setState({
-                      checked: true,
-                    });
-                  }
-                } }
-              >
-                {checked
-                  ? <img src={ yellowStar } alt="Botão de desfavoritar" />
-                  : <img src={ emptyStar } alt="Botão de favoritar" /> }
-              </button>
-              <audio src={ previewUrl } controls>
-                <track kind="captions" />
-                O seu navegador não suporta o elemento
-                {' '}
-                <code>audio</code>
-              </audio>
+              <div className="flex">
+                <audio src={ previewUrl } controls>
+                  <track kind="captions" />
+                  O seu navegador não suporta o elemento
+                  {' '}
+                  <code>audio</code>
+                </audio>
+                <button
+                  name="favorite-input"
+                  className="w-8"
+                  onClick={ async () => {
+                    if (checked) {
+                      removeSong(music);
+                      handleFavorites(music);
+                      this.setState({
+                        checked: false,
+                      });
+                    } else {
+                      addSong(music);
+                      this.setState({
+                        checked: true,
+                      });
+                    }
+                  } }
+                >
+                  {checked
+                    ? <img src={ yellowStar } alt="Botão de desfavoritar" />
+                    : <img src={ emptyStar } alt="Botão de favoritar" /> }
+                </button>
+              </div>
+
             </>
           )
         }
@@ -83,6 +94,7 @@ MusicCard.propTypes = {
     collectionName: PropTypes.string.isRequired,
     trackName: PropTypes.string.isRequired,
     trackId: PropTypes.number.isRequired,
+    artworkUrl100: PropTypes.string.isRequired,
   }).isRequired,
   favoriteSongs: PropTypes.arrayOf(
     PropTypes.shape({
