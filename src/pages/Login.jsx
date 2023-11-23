@@ -42,38 +42,39 @@ class Login extends Component {
           isLoading ? (
             <Loading />
           ) : (
-            <form
-              className="
+            <>
+              <form
+                className="
               rounded-lg
               border-emerald-500
               shadow-xl
               bg-white
               flex-col flex justify-center items-center
               w-3/6 h-4/6"
-            >
-              <h2 className="font-bold text-center text-2xl text-emerald-500 ">
-                Crie seu cadastro!
-              </h2>
-              <span className="text-emerald-500 text-center p-2">
-                e encontre as suas novas músicas favoritas.
-              </span>
-              <div
-                className="flex justify-center items-center gap-2 flex-col w-11/12 mt-6"
               >
-                <input
-                  type="text"
-                  className="border shadow-xl
+                <h2 className="font-bold text-center text-2xl text-emerald-500 ">
+                  Crie seu cadastro!
+                </h2>
+                <span className="text-emerald-500 text-center p-2">
+                  e encontre as suas novas músicas favoritas.
+                </span>
+                <div
+                  className="flex justify-center items-center gap-2 flex-col w-11/12 mt-6"
+                >
+                  <input
+                    type="text"
+                    className="border shadow-xl
                   border-gray-400
                   w-3/6 rounded-md
                   text-center p-1
                   outline-none text-md focus:border-emerald-500 transition duration-500"
-                  name="name-input"
-                  placeholder="Digite seu nome"
-                  onChange={ this.handleChange }
-                  value={ userName }
-                />
-                <button
-                  className="border-2 font-semibold
+                    name="name-input"
+                    placeholder="Digite seu nome"
+                    onChange={ this.handleChange }
+                    value={ userName }
+                  />
+                  <button
+                    className="border-2 font-semibold
                 text-white rounded-lg w-3/6 h-10
                 bg-emerald-500 bg-opacity-50
                 shadow-xl
@@ -81,29 +82,31 @@ class Login extends Component {
                 enabled:bg-opacity-100
                 enabled:hover:scale-105
                 transition duration-200"
-                  disabled={ isButtonDisabled }
-                  onClick={ (event) => {
-                    const { history } = this.props;
-                    event.preventDefault();
-                    this.setState({
-                      isLoading: true,
-                    });
-                    createUser({ name: userName });
-                    this.setState({
-                      isLoading: false,
-                    });
-                    history.push('/search');
-                  } }
-                >
-                  Entrar
-                </button>
-                <img
-                  className="w-6/12"
-                  src={ loginSvg }
-                  alt="Ilustração de uma mulher ouvindo músicas."
-                />
-              </div>
-            </form>
+                    disabled={ isButtonDisabled }
+                    onClick={ (event) => {
+                      const { history } = this.props;
+                      event.preventDefault();
+                      this.setState({
+                        isLoading: true,
+                      });
+                      createUser({ name: userName });
+                      this.setState({
+                        isLoading: false,
+                      });
+                      history.push('/search');
+                    } }
+                  >
+                    Entrar
+                  </button>
+                  <img
+                    className="w-6/12"
+                    src={ loginSvg }
+                    alt="Ilustração de uma mulher ouvindo músicas."
+                  />
+                </div>
+              </form>
+              <a href="https://storyset.com/music" className="text-white text-center bottom-4 absolute" target="_blank" rel="noreferrer">Music illustrations by Storyset</a>
+            </>
           )
         }
       </div>
