@@ -45,7 +45,7 @@ class Favorites extends Component {
               <Header />
               <section className="flex gap-12 justify-center items-center p-12 flex-wrap">
                 {
-                  favoriteSongs.map((song) => (
+                  favoriteSongs.length > 0 ? favoriteSongs.map((song) => (
                     <MusicCard
                       key={ song.trackId }
                       music={ song }
@@ -55,6 +55,13 @@ class Favorites extends Component {
                       } }
                     />
                   ))
+                    : (
+                      <h2 className="font-bold text-stone-600">
+                        Parece
+                        que você ainda não
+                        favoritou nenhuma música, experimente clicar em Pesquisar!
+                      </h2>
+                    )
                 }
               </section>
             </>
