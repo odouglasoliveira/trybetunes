@@ -60,9 +60,9 @@ class Profile extends Component {
                     alt={ name }
                   />
                   <button
-                    className="w-32 h-12 border border-emerald-500
-                    px-6 rounded-md hover:bg-emerald-500
-                    transition duration-200 hover:text-white"
+                    className="w-32 h-16 font-bold
+                    px-6 rounded-md bg-emerald-500
+                    transition duration-200 text-white hover:bg-emerald-600"
                     onClick={ this.redirectProfile }
                   >
                     Editar perfil
